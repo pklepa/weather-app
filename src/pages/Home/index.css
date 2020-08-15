@@ -1,0 +1,18 @@
+#page-home {
+	width: 100vw;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	background-color: #ffffff;
+	background-attachment: fixed;
+	background-size: cover;
+	background-image: url('../../assets/images/Pattern-Randomized.svg');
+	background-position-x: -200px;
+
+	box-sizing: border-box;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}

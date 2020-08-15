@@ -1,0 +1,13 @@
+:root {
+	--base-color: #fa4d56;
+	--text-on-base-color: white;
+
+	/* the default font size for the web is 16px - by setting 62.5%, its now set as 10px */
+	font-size: 62.5%;
+}
+
+@media (max-width: 700px) {
+	:root {
+		font-size: 60%;
+	}
+}
