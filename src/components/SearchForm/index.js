@@ -39,7 +39,7 @@ function SearchForm() {
         setCity(res.name);
         setWeather(utils.capitalize(res.weather[0].description));
         setWeatherIcon(
-          `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`
+          `https://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`
         );
         const temp = utils.kelvin2Celsius(res.main.temp).toFixed(1);
         setTemperature(`${temp} ºC`);
