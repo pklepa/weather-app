@@ -1,0 +1,22 @@
+.search-loading {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+	height: 100%;
+}
+
+.search-loading img {
+	width: 80px;
+}
+
+.search-loading h1 {
+	color: var(--base-color);
+	font-size: 2rem;
+	font-family: Nunito, sans-serif;
+	font-weight: 700;
+
+	margin-top: 15px;
+}

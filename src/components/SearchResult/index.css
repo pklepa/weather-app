@@ -1,0 +1,72 @@
+.search-result {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 100%;
+	height: 100%;
+}
+
+.search-result button#btn-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+
+	margin-top: 10px;
+	margin-right: 10px;
+
+	background-color: var(--base-color);
+	transition: background-color 400ms;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	padding: 0;
+
+	color: var(--text-on-base-color);
+	font-family: Material Icons;
+	font-size: 2rem;
+}
+
+.search-result button#btn-close:hover {
+	background-color: var(--base-color-dark);
+}
+
+.search-result .city-name {
+	color: var(--base-color);
+	font-family: Nunito, sans-serif;
+	font-size: 2.4rem;
+	font-weight: 700;
+}
+
+.search-result .img-container {
+	margin-top: 20px;
+
+	width: 10rem;
+	height: 10rem;
+
+	background-color: var(--base-color-lighter);
+	border-radius: 50%;
+}
+
+.search-result .img-container img {
+	width: 10rem;
+	height: auto;
+}
+
+.search-result .weather-description {
+	color: var(--base-color);
+	font-family: Nunito, sans-serif;
+	font-size: 2rem;
+	font-weight: 400;
+}
+
+.search-result .current-temperature {
+	color: var(--base-color);
+	font-family: Nunito, sans-serif;
+	font-size: 3rem;
+	font-weight: 700;
+
+	margin-top: 30px;
+}

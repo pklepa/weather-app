@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import "./index.css";
 
 import utils from "../../utils/utils";
+import SearchResult from "../SearchResult";
+import SearchLoading from "../SearchLoading";
 
 function SearchForm() {
   const [input, setInput] = useState("");
@@ -10,11 +12,14 @@ function SearchForm() {
   const [weather, setWeather] = useState("");
   const [temperature, setTemperature] = useState("");
   const [weatherIcon, setWeatherIcon] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const [resultVisibility, setResultVisibility] = useState(false);
 
   async function getWeather(city) {
     try {
+      setIsLoading(true);
+
       const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=cb5d4cb291962932245b3480bd61fc75`;
       const response = await fetch(url);
       const data = await response.json();
@@ -35,9 +40,11 @@ function SearchForm() {
         setWeatherIcon(
           `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`
         );
-        const temp = utils.kelvin2Celsius(res.main.temp).toFixed(2);
+        const temp = utils.kelvin2Celsius(res.main.temp).toFixed(1);
         setTemperature(`${temp} ºC`);
         setResultVisibility(true);
+
+        setIsLoading(false);
       })
       .catch((err) => {
         console.warn("An error occurred:", err);
@@ -52,6 +59,7 @@ function SearchForm() {
           name="search"
           id="search"
           value={input}
+          placeholder="Search any city"
           onChange={(e) => setInput(e.target.value)}
         />
         <button type="submit">
@@ -60,17 +68,21 @@ function SearchForm() {
       </form>
 
       <div
-        className={resultVisibility ? "query-result" : "query-result hidden"}
+        className={
+          resultVisibility ? "result-container" : "result-container hidden"
+        }
       >
-        <button id="btn-close" onClick={() => setResultVisibility(false)}>
-          close
-        </button>
-        <h1 className="city-name">{city}</h1>
-        <div className="img-container">
-          <img src={weatherIcon} alt="Weather icon" />
-        </div>
-        <h2 className="weather-description">{weather}</h2>
-        <h2 className="current-temperature">{temperature}</h2>
+        {isLoading ? (
+          <SearchLoading />
+        ) : (
+          <SearchResult
+            city={city}
+            weather={weather}
+            weatherIcon={weatherIcon}
+            temperature={temperature}
+            setResultVisibility={setResultVisibility}
+          />
+        )}
       </div>
     </div>
   );
