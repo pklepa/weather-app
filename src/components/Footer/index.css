@@ -34,3 +34,26 @@ footer h1 a {
 	border-radius: 8px;
 	padding: 0 4px;
 }
+
+@media (max-height: 800px) {
+	footer {
+		position: relative;
+
+		align-items: center;
+		justify-content: center;
+		background-color: var(--base-color);
+
+		height: 40px;
+		margin-top: 20px;
+	}
+
+	footer .text-container {
+		background: none;
+		width: auto;
+		height: auto;
+	}
+
+	footer h1 {
+		margin: 0;
+	}
+}

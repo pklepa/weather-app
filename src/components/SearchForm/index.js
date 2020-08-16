@@ -19,6 +19,7 @@ function SearchForm() {
   async function getWeather(city) {
     try {
       setIsLoading(true);
+      setResultVisibility(true);
 
       const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=cb5d4cb291962932245b3480bd61fc75`;
       const response = await fetch(url);
@@ -42,7 +43,6 @@ function SearchForm() {
         );
         const temp = utils.kelvin2Celsius(res.main.temp).toFixed(1);
         setTemperature(`${temp} ºC`);
-        setResultVisibility(true);
 
         setIsLoading(false);
       })
@@ -63,7 +63,8 @@ function SearchForm() {
           onChange={(e) => setInput(e.target.value)}
         />
         <button type="submit">
-          <span>search</span> Search
+          <span>search</span>
+          <p>Search</p>
         </button>
       </form>
 

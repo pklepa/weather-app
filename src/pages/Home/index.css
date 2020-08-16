@@ -5,6 +5,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 
 	background-color: #ffffff;
 	background-attachment: fixed;
@@ -15,4 +16,10 @@
 	box-sizing: border-box;
 	overflow-x: hidden;
 	overflow-y: hidden;
+}
+
+@media (max-height: 800px) {
+	#page-home {
+		justify-content: space-between;
+	}
 }

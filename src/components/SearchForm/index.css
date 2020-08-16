@@ -84,3 +84,22 @@
 .search-form .result-container.hidden {
 	opacity: 0;
 }
+
+@media (max-width: 600px) {
+	.search-form form {
+		width: 90%;
+	}
+
+	.search-form .result-container {
+		width: 90%;
+		margin-top: 4rem;
+	}
+
+	.search-form form button span {
+		margin-right: 0;
+	}
+
+	.search-form form button p {
+		display: none;
+	}
+}
