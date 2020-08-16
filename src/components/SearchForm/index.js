@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import "./index.css";
 
+import config from "../../config/config";
 import utils from "../../utils/utils";
 import SearchResult from "../SearchResult";
 import SearchLoading from "../SearchLoading";
@@ -21,8 +22,8 @@ function SearchForm() {
       setIsLoading(true);
       setResultVisibility(true);
 
-      const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=cb5d4cb291962932245b3480bd61fc75`;
-      const response = await fetch(url);
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${config.REACT_APP_WEATHER_API_KEY}`;
+      const response = await fetch(url, { mode: "cors" });
       const data = await response.json();
 
       return data;
