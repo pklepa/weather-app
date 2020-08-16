@@ -9,6 +9,9 @@ function SearchForm() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState("");
   const [temperature, setTemperature] = useState("");
+  const [weatherIcon, setWeatherIcon] = useState("");
+
+  const [resultVisibility, setResultVisibility] = useState(false);
 
   async function getWeather(city) {
     try {
@@ -22,13 +25,19 @@ function SearchForm() {
     }
   }
 
-  function handleClick() {
+  function handleSubmit(e) {
+    e.preventDefault();
+
     getWeather(input)
       .then((res) => {
         setCity(res.name);
-        setWeather(`${res.weather[0].main}, ${res.weather[0].description}`);
+        setWeather(utils.capitalize(res.weather[0].description));
+        setWeatherIcon(
+          `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`
+        );
         const temp = utils.kelvin2Celsius(res.main.temp).toFixed(2);
         setTemperature(`${temp} ºC`);
+        setResultVisibility(true);
       })
       .catch((err) => {
         console.warn("An error occurred:", err);
@@ -37,17 +46,32 @@ function SearchForm() {
 
   return (
     <div className="search-form">
-      <input
-        type="text"
-        name="search"
-        id="search"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      />
-      <button onClick={handleClick}>Get weather</button>
-      <h1>City: {city}</h1>
-      <h2>Weather: {weather}</h2>
-      <h2>Temperature: {temperature}</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="search"
+          id="search"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+        <button type="submit">
+          <span>search</span> Search
+        </button>
+      </form>
+
+      <div
+        className={resultVisibility ? "query-result" : "query-result hidden"}
+      >
+        <button id="btn-close" onClick={() => setResultVisibility(false)}>
+          close
+        </button>
+        <h1 className="city-name">{city}</h1>
+        <div className="img-container">
+          <img src={weatherIcon} alt="Weather icon" />
+        </div>
+        <h2 className="weather-description">{weather}</h2>
+        <h2 className="current-temperature">{temperature}</h2>
+      </div>
     </div>
   );
 }

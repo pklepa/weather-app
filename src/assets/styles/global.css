@@ -1,5 +1,8 @@
 :root {
 	--base-color: #fa4d56;
+	--base-color-light: #f17077;
+	--base-color-lighter: #f8c8ca;
+	--base-color-dark: #f13942;
 	--text-on-base-color: white;
 
 	/* the default font size for the web is 16px - by setting 62.5%, its now set as 10px */

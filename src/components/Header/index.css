@@ -6,6 +6,7 @@ header {
 	width: 250px;
 	height: 250px;
 	background-image: url('../../assets/images/blob.svg');
+	background-repeat: no-repeat;
 
 	color: white;
 	font-family: Viga, sans-serif;

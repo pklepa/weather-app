@@ -14,9 +14,15 @@ function kelvin2Fahrenheit(temp) {
   return celsius2Fahrenheit(kelvin2Celsius(temp));
 }
 
+function capitalize(s) {
+  if (typeof s !== "string") return "";
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
 export default {
   kelvin2Celsius,
   kelvin2Fahrenheit,
   celsius2Fahrenheit,
   fahrenheit2Celsius,
+  capitalize,
 };
