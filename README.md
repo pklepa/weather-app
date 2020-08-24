@@ -10,7 +10,11 @@
 
 #### Web
 
+![image](https://user-images.githubusercontent.com/22618438/91083178-39209500-e620-11ea-9d6e-ed4a6720473b.png)
+
 #### Mobile
+
+![image](https://user-images.githubusercontent.com/22618438/91083347-8a308900-e620-11ea-9fcd-9fd591215200.png)
 
 ## Objectives
 
